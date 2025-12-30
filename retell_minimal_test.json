@@ -1,0 +1,66 @@
+{
+  "agent_id": "",
+  "channel": "voice",
+  "agent_name": "Conversation Flow Agent",
+  "response_engine": {
+    "type": "conversation-flow",
+    "version": 0,
+    "conversation_flow_id": "",
+    "language": "en-US",
+    "data_storage_setting": "everything",
+  "opt_in_signed_url": false,
+
+  "is_published": false,
+  "post_call_analysis_model": "gpt-4.1-mini",
+  "pii_config": {
+    "mode": "post_call",
+    "categories": []
+  },
+  "voice_id": "11labs-Cimo",
+  "max_call_duration_ms": 3600000,
+  "interruption_sensitivity": 0.9,
+  "allow_user_dtmf": true,
+  "user_dtmf_options": {},
+   "tools": [],
+
+  "conversationFlow": {
+  "start_node_id": "greeting",
+  "start_speaker": "agent",
+  "model_choice": {
+      "type": "cascading",
+      "model": "gpt-4.1"
+    },
+  "global_prompt": "You are a helpful AI assistant.",
+  "nodes": [
+    {
+      "id": "greeting",
+      "type": "conversation",
+      "instruction": {
+        "type": "prompt",
+        "text": "Greet the customer warmly and ask how you can help them today."
+      },
+      "edges": [
+        {
+          "id": "to_end",
+          "destination_node_id": "goodbye",
+          "transition_condition": {
+            "type": "prompt",
+            "prompt": "Customer is done with the conversation"
+          }
+        }
+      ]
+    },
+      {
+        "id": "goodbye",
+        "type": "conversation",
+        "instruction": {
+          "type": "prompt",
+          "text": "Thank the customer and say goodbye warmly."
+        },
+        "edges": []
+      }
+      ]
+      }
+    }
+  }
+  

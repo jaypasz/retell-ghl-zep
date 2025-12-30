@@ -5,3 +5,7 @@ pydantic==2.5.3
 python-dotenv==1.0.0
 
 langfuse
+
+# Optimization dependencies
+redis[hiredis]==5.0.1
+supabase==2.3.4

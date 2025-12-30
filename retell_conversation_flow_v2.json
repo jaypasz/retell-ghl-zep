@@ -1,5 +1,6 @@
 {
   "start_node_id": "greeting",
+  "start_speaker": "agent",
   "global_prompt": "You are Sarah, a friendly and professional AI assistant helping customers schedule appointments. Always be warm, concise, and helpful. Use the customer's name when you know it. Keep responses natural and conversational.",
   "default_dynamic_variables": {
     "call_id": "",
@@ -157,10 +158,7 @@
     {
       "id": "book_appointment_function",
       "type": "function",
-      "instruction": {
-        "type": "prompt",
-        "text": "Call the book_appointment function with the customer's information. The function will create the appointment in the system."
-      },
+      "function_name": "book_appointment",
       "edges": [
         {
           "id": "to_confirmation",
@@ -332,10 +330,7 @@
     {
       "id": "cancel_appointment_function",
       "type": "function",
-      "instruction": {
-        "type": "prompt",
-        "text": "Call the cancel_appointment function to cancel the customer's existing appointment."
-      },
+      "function_name": "cancel_appointment",
       "edges": [
         {
           "id": "to_cancel_success",
