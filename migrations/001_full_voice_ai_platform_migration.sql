@@ -16,7 +16,7 @@ CREATE EXTENSION IF NOT EXISTS "vector"; -- For embeddings (requires pgvector)
 -- STEP 1: ALTER EXISTING TABLES
 -- ============================================================================
 
--- Upgrade tenants table
+-- Upgrade tenants table. We would like to add the choice of using GHL or cal.com for appointments
 ALTER TABLE tenants
     ADD COLUMN IF NOT EXISTS slug VARCHAR(100) UNIQUE,
     ADD COLUMN IF NOT EXISTS company_name VARCHAR(255),
