@@ -6,6 +6,13 @@ import os
 import logging
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
+
+# Clear proxy env vars that can interfere with Supabase client
+# Railway and other platforms sometimes set these
+for proxy_var in ['HTTP_PROXY', 'HTTPS_PROXY', 'http_proxy', 'https_proxy']:
+    if proxy_var in os.environ:
+        del os.environ[proxy_var]
+
 from supabase import create_client, Client
 
 logger = logging.getLogger(__name__)
